@@ -24,7 +24,7 @@ namespace ArduinoNESToKeyboard {
             ConsoleKeyInfo keyRead;
             try {
                 Console.WriteLine("{0}\nArduinoNESToKeyboard\nAn Arduino-powered NES Controller-To-Keyboard Mapper Utility\n", new string('-', 55));
-                WriteCopyRightLicenseInfo();
+                WriteCopyrightLicenseInfo();
                 Console.WriteLine("Edit the ArduinoNESToKeyboard.exe.config file to change this utility's behavior.");
                 
                 //try and load config, exit program if failed
@@ -65,10 +65,8 @@ namespace ArduinoNESToKeyboard {
         /// </summary>
         /// <param name="e">Event argument containing the value read from the serial port</param>
         static void OnSerialIntRead(SerialReadEventArgs e) {
-            //invert bit values to create a comparison mask (11011011 becomes 00100100)
-            int invertedCtrlrState = ~(int)e.Value;
             //notify controller of new button-state
-            _controller.UpdatePressedButtons((NESButtons)invertedCtrlrState);
+            _controller.UpdatePressedButtons((NESButtons)e.Value);
         }
 
         /// <summary>
@@ -164,7 +162,7 @@ namespace ArduinoNESToKeyboard {
             public ScanCodeShort ScanKey { get; set; }
         }
 
-        private static void WriteCopyRightLicenseInfo() {
+        private static void WriteCopyrightLicenseInfo() {
             Console.WriteLine("Copyright (c) 2014  Jason Wells");
             Console.WriteLine("Licensed under the Apache License, Version 2.0 (the \"License\");\na copy of the License is provided as license.txt.");
             Console.WriteLine("Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,");

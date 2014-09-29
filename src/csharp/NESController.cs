@@ -60,7 +60,7 @@ namespace ArduinoNESToKeyboard {
         internal void UpdatePressedButtons(NESButtons btnsNow) {
             ButtonEventArgs args = new ButtonEventArgs();
             NESButtons btnsBefore;
-
+            btnsNow = ~btnsNow; //bit-reverse the value so 1=down and 0=up
             if (_buttonState != btnsNow) {
                 btnsBefore = _buttonState;
                 _buttonState = btnsNow;

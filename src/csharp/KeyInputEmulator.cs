@@ -10,9 +10,6 @@ namespace ArduinoNESToKeyboard {
     /// </remarks>
     public class KeyInputEmulator {
 
-        //TODO: Eliminate need for both ScanCode and VirtualKeyCode (see if SendInput will work with just one?)
-        //TODO: Figure out way to map actual arrow keys instead of numpad arrows (need to disable numlock to use)
-
         /// <summary>
         /// Static method for emulating a keyboard key press (appears to be pressed until EmulateKeyUp is called)
         /// </summary>
@@ -42,8 +39,7 @@ namespace ArduinoNESToKeyboard {
                 ki = new KEYBDINPUT() {
                     wScan = scanCodeShort,
                     wVk = virtualKeyShort,
-                    //if keydown, flag only SCANCODE; otherwise also flag KEYUP
-                    dwFlags = keyDown ? KEYEVENTF.SCANCODE : KEYEVENTF.KEYUP | KEYEVENTF.SCANCODE
+                    dwFlags = keyDown ? 0 : KEYEVENTF.KEYUP
                 }
             };
             //

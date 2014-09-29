@@ -5,7 +5,7 @@
   See end of this file for its copyright and licensing information.
 */
 
-int baud = 57600; //The baud rate for the PC serial connection
+long baud = 57600; //The baud rate for the PC serial connection
 int strobe = 2; //The digital pin which is hooked to the NES controller strobe wire
 int clock = 3; //The digital pin which is hooked to the NES controller clock wire
 int data = 4; //The digital pin which is hooked to the NES controller data wire
