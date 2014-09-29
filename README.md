@@ -1,23 +1,23 @@
 arduino-nes-to-keyboard
 =======================
 
-Classic NES Controller-To-USB Interface (using an Arduino and DotNet)
+Classic NES Controller-To-USB Interface (using an Arduino and .NET)
 
-Use an Arduino to connect a classic NES controller to your PC and emulate keyboard events on button-up and button-down events. Includes entire code for the required Arduino program and CSharp console application.
+Use an Arduino to connect a classic NES controller to your PC and emulate keyboard events on button-up and button-down events. Includes entire code for the required Arduino program and C# console application.
 
 About ArduinoNESToKeyboard
 ==========================
-This open-source project allows you to use an Arduino UNO to connect a classic NES controller to your PC and emulate keyboard events on button-up and button-down events. Includes fully-commented code for the Arduino program (with no dependencies) and a CSharp console application (.NET Framework 4 Client Profile.)
+This open-source project allows you to use an Arduino UNO to connect a classic NES controller to your PC and emulate keyboard events on button-up and button-down events. Includes fully-commented code for the Arduino program (with no dependencies) and a C# console application (.NET Framework 4 Client Profile.)
 
-The included Arduino sketch polls a connected NES controller for the state of its buttons, and sends a single byte to the serial port. The CSharp program listens on the serial port and raises events when new controller data is available. Then, based on the .config file's mapping, keyboard key-down/up events are emulated to match the corresponding button-down/up event.
+The included Arduino sketch polls a connected NES controller for the state of its buttons, and sends a single byte to the serial port. The C# program listens on the serial port and raises events when new controller data is available. Then, based on the .config file's mapping, keyboard key-down/up events are emulated to match the corresponding button-down/up event.
 
-After hooking up the NES Controller to your Arduino UNO and uploading the provided sketch, update the CSharp application's .config file with your Arduino's serial port (e.g.- "COM1") and the baud-rate of its connection (default used in the provided Arduino code is 57600.) Then provide the desired button-to-key mappings in the same format as the example provided. See the included keys.txt file to see all available Keyboard key config values.
+After hooking up the NES Controller to your Arduino UNO and uploading the provided sketch, update the C# application's .config file with your Arduino's serial port (e.g.- "COM1") and the baud-rate of its connection (default used in the provided Arduino code is 57600.) Then provide the desired button-to-key mappings in the same format as the example provided. See the included keys.txt file to see all available Keyboard key config values.
 
 Note: Make sure you update the .config file in the \bin directory. The .config example included is used to map keyboard controls for DuckTales Remastered (http://store.steampowered.com/app/237630/) and has been tested extensively with no issues.
 
-Once the Arduino is plugged into USB and running its sketch (and the NES controller is hooked up,) you can start the CSharp application. It will open in a console window, and as long as it is running, NES controller button presses will execute the configured keyboard emulation.
+Once the Arduino is plugged into USB and running its sketch (and the NES controller is hooked up,) you can start the C# application. It will open in a console window, and as long as it is running, NES controller button presses will execute the configured keyboard emulation.
 
-Resulting keyboard emulation should occur in any window that has focus, so you should then be able to start up your game (or whatever application) after starting the CSharp application. You can exit the application by pressing Q after focusing on the console window.
+Resulting keyboard emulation should occur in any window that has focus, so you should then be able to start up your game (or whatever application) after starting the C# application. You can exit the application by pressing Q after focusing on the console window.
 
 
 NES Controller Pinout
